@@ -20,6 +20,7 @@
     "node": true
   },
   "extends": [
+    "plugin:storybook/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
@@ -28,8 +29,7 @@
     "eslint-config-prettier",
     "prettier",
     // "plugin:prettier/@typescript-eslint",
-    "plugin:prettier/recommended", // Make sure this is always the last element in the array.
-    "plugin:storybook/recommended"
+    "plugin:prettier/recommended" // Make sure this is always the last element in the array.
   ],
   "plugins": ["eslint-plugin-prettier", "prettier"],
   "globals": {
