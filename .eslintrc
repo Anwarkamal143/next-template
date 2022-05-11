@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-    "parserOptions": {
+  "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -20,8 +20,7 @@
     "node": true
   },
   "extends": [
-    "plugin:storybook/recommended",
-     "eslint:recommended",
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "next",
@@ -29,12 +28,10 @@
     "eslint-config-prettier",
     "prettier",
     // "plugin:prettier/@typescript-eslint",
-    "plugin:prettier/recommended" // Make sure this is always the last element in the array.
+    "plugin:prettier/recommended", // Make sure this is always the last element in the array.
+    "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "eslint-plugin-prettier",
-  "prettier"
-  ],
+  "plugins": ["eslint-plugin-prettier", "prettier"],
   "globals": {
     "React": "readonly"
   },
@@ -70,10 +67,13 @@
   },
   "overrides": [
     {
+      // or whatever matches stories specified in .storybook/main.js
       "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
       "rules": {
-        // ? example of ovveriding a rule
-        "storybook/hierarchy-separator":"error"
+        // example of overriding a rule
+        "storybook/hierarchy-separator": "error",
+        // example of disabling a rule
+        "storybook/default-exports": "off"
       }
     }
   ]

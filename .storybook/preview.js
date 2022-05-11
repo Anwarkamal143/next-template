@@ -1,8 +1,8 @@
 // @ts-check
-import { RouterContext } from 'next/dist/shared/lib/router-context';
-import * as NextImage from 'next/image';
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import * as NextImage from 'next/image'
 // import { AuthProvider } from '../state/auth/AuthContext';
-import '../styles/globals.css';
+import '../styles/globals.css'
 
 const BREAKPOINTS_INT = {
   xs: 375,
@@ -10,11 +10,11 @@ const BREAKPOINTS_INT = {
   md: 900,
   lg: 1200,
   xl: 1536,
-};
+}
 
 const customViewports = Object.fromEntries(
   Object.entries(BREAKPOINTS_INT).map(([key, val], idx) => {
-    console.log(val);
+    console.log(val)
     return [
       key,
       {
@@ -24,25 +24,25 @@ const customViewports = Object.fromEntries(
           height: `${(idx + 5) * 10}vh`,
         },
       },
-    ];
+    ]
   })
-);
+)
 
 // Allow Storybook to handle Next's <Image> component
-const OriginalNextImage = NextImage.default;
+const OriginalNextImage = NextImage.default
 
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props) => <OriginalNextImage {...props} unoptimized />,
-});
+})
 
 export const decorators = [
   (Story) => (
     // <AuthProvider>
-      <Story />
+    <Story />
     // </AuthProvider>
   ),
-];
+]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -57,4 +57,4 @@ export const parameters = {
   nextRouter: {
     Provider: RouterContext.Provider,
   },
-};
+}
